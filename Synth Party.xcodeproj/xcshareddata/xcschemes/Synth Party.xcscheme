@@ -73,6 +73,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Synth Party"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
