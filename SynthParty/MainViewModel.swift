@@ -11,8 +11,6 @@ class MainViewModel: ObservableObject {
     
     let webViewModel = WebViewModel()
     
-    
-    private var didInitialLoad = false
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
@@ -25,30 +23,15 @@ class MainViewModel: ObservableObject {
         webViewModel[keyPath: keyPath]
     }
     
-    var homeUrl: URL? {
-        return URL(string: "https://synth.party/cc/")
-    }
-    
-    func initialLoad(lastUrl: URL?) throws {
-        if didInitialLoad == false {
-            self.didInitialLoad = true
-            if let lastUrl = lastUrl, !lastUrl.isFileURL {
-                load(url: lastUrl)
-            } else if let url = homeUrl {
-                load(url: url)
-            }
-        }
-    }
+    var home = URL(string: "https://synth.party/cc/")
     
     func goHome() throws {
-        guard let url = homeUrl else {
-            return
-        }
-        webViewModel.apply(input: .load(url: url))
+        webViewModel.url = home
+        webViewModel.apply(input: .load)
     }
     
-    func load(url: URL) {
-        webViewModel.apply(input: .load(url: url))
+    func load() {
+        webViewModel.apply(input: .load)
     }
     
     func goBack() {

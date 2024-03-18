@@ -25,6 +25,7 @@ public class WebViewController: UIViewController {
         configuration.mediaTypesRequiringUserActionForPlayback = []
         configuration.dataDetectorTypes = []
         configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
+        configuration.preferences.isElementFullscreenEnabled = true
         self.webView = WKWebView(frame: .zero, configuration: configuration)
         webView.isInspectable = true
         

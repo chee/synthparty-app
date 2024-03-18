@@ -17,7 +17,6 @@
 		CB7D42DB2617096C005C86D0 /* SynthPartyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D42DA2617096C005C86D0 /* SynthPartyApp.swift */; };
 		CB7D42F9261709F4005C86D0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D42F8261709F4005C86D0 /* MainView.swift */; };
 		CB7D42FB26170A9E005C86D0 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D42FA26170A9E005C86D0 /* WebView.swift */; };
-		CBF6C69D2779970000548AA8 /* ManagedAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6C69C2779970000548AA8 /* ManagedAppConfig.swift */; };
 		F005EB9A2BA8C1B3006EE333 /* SynthPartyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005EB992BA8C1B3006EE333 /* SynthPartyWebViewController.swift */; };
 		F005EB9B2BA8C1B3006EE333 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005EB982BA8C1B3006EE333 /* WebViewController.swift */; };
 		F036D4912BA8C7EE002801A5 /* MIDIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005EB9E2BA8C724006EE333 /* MIDIClient.swift */; };
@@ -51,7 +50,6 @@
 		CB7D42F8261709F4005C86D0 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CB7D42FA26170A9E005C86D0 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		CBE1921C2A3402DA00FD3A99 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CBF6C69C2779970000548AA8 /* ManagedAppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAppConfig.swift; sourceTree = "<group>"; };
 		F005EB982BA8C1B3006EE333 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F005EB992BA8C1B3006EE333 /* SynthPartyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthPartyWebViewController.swift; sourceTree = "<group>"; };
 		F005EB9E2BA8C724006EE333 /* MIDIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIClient.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				F005EB992BA8C1B3006EE333 /* SynthPartyWebViewController.swift */,
 				F005EB982BA8C1B3006EE333 /* WebViewController.swift */,
 				CB7D42DA2617096C005C86D0 /* SynthPartyApp.swift */,
-				CBF6C69C2779970000548AA8 /* ManagedAppConfig.swift */,
 				CB7D42F8261709F4005C86D0 /* MainView.swift */,
 				CB0DA92428FB7BC900BAE912 /* MainViewModel.swift */,
 				CB7D42FA26170A9E005C86D0 /* WebView.swift */,
@@ -233,7 +230,6 @@
 				CB0DA92528FB7BC900BAE912 /* MainViewModel.swift in Sources */,
 				F036D4942BA8C7F9002801A5 /* MIDI.swift in Sources */,
 				CB52568F26419776009EE660 /* ActivityView.swift in Sources */,
-				CBF6C69D2779970000548AA8 /* ManagedAppConfig.swift in Sources */,
 				CB1DAA51262D6EB0007F5531 /* WebViewModel.swift in Sources */,
 				F036D4932BA8C7EE002801A5 /* MIDIPort.swift in Sources */,
 				F036D4922BA8C7EE002801A5 /* WebMIDI.swift in Sources */,

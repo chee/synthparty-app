@@ -37,12 +37,6 @@ public class SynthPartyWebViewController: WebViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        $url.compactMap({$0}).sink() { [weak self] (url) in
-//            if self?.webView.isLoading == false {
-//                self?.didChangeUrl(url)
-//            }
-        }.store(in: &cancellables)
-        
         webView.navigationDelegate = self
         
         webView.scrollView.contentInsetAdjustmentBehavior = .never
@@ -65,23 +59,7 @@ public class SynthPartyWebViewController: WebViewController {
 }
 
 extension SynthPartyWebViewController: WKNavigationDelegate {
-    public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        webMidi.reset()
-    }
-    
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//        if let url = webView.url {
-//            didChangeUrl(url)
-//        }
-    }
-    
-//    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-//        delegate?.synthPartyWebViewController(self, didFail: error)
-//    }
-//    
-//    public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-//        delegate?.synthPartyWebViewController(self, didFail: error)
-//    }
 }
 
-public protocol SynthPartyWebViewControllerDelegate: AnyObject {}
+public protocol SynthPartyWebViewControllerDelegate: AnyObject {
+}

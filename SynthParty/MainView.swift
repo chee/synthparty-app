@@ -1,37 +1,58 @@
 import SwiftUI
 
 struct MainView: View {
-    
-    @SceneStorage("lastUrl") private var lastUrl: URL?
-    
-    @StateObject private var viewModel = MainViewModel()
+    @StateObject private var model = MainViewModel()
 
-    
-    @State private var eventTask: Task<(), Never>?
-    
     var body: some View {
-        HStack(spacing: 0) {
-            WebView(viewModel: viewModel.webViewModel)
-                .edgesIgnoringSafeArea([.bottom, .horizontal])
-        }
-        .onAppear {
-            
-            eventTask = Task {
-                for await event in viewModel.eventChannel {
-
+        VStack(spacing: 0) {
+            HStack {
+                TextField("url", text: Binding(
+                        get: { model.webViewModel.url?.absoluteString ?? "" },
+                        set: { model.webViewModel.url = URL(string: $0) }
+                    ))
+                    .keyboardType(.URL)
+                    .textInputAutocapitalization(.never)
+                    .onSubmit {
+                        model.load()
+                    }
+                    .submitLabel(.go)
+                Spacer()
+                Button(action: {
+                    model.goBack()
+                }) {
+                    Label("Back", systemImage: "arrow.left")
+                        .foregroundStyle(model.canGoBack ? .blue : .gray)
+                        .labelStyle(.iconOnly)
+                }.disabled(!model.canGoBack)
+                
+                Button(action: {
+                    model.goForward()
+                }) {
+                    Label("Forth", systemImage: "arrow.forward")
+                        .foregroundStyle(model.canGoForward ? .blue : .gray)
+                        .labelStyle(.iconOnly)
+                }.disabled(!model.canGoForward)
+                
+                Button(action: {
+                    model.load()
+                }) {
+                    Label("Reload", systemImage: "arrow.counterclockwise")
+                        .foregroundStyle(.blue)
+                        .labelStyle(.iconOnly)
                 }
+              
+            }.padding(10)
+            .cornerRadius(30)
+
+            HStack(spacing: 0) {
+                WebView(viewModel: model.webViewModel)
+                    .edgesIgnoringSafeArea([.bottom, .horizontal])
             }
-            
-            try? viewModel.initialLoad(lastUrl: lastUrl)
-        }
-        .onDisappear {
-            eventTask?.cancel()
-        }
-        .onChange(of: viewModel.url) { newValue in
-            if let url = newValue {
-                lastUrl = url
+            .onAppear {
+                model.load()
             }
         }
+
     }
 }
 

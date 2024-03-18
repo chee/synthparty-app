@@ -28,7 +28,7 @@ class WebViewModel: ObservableObject {
 
 extension WebViewModel {
     enum Input {
-        case load(url: URL)
+        case load
         case goBack
         case goForward
         case reload

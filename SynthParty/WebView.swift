@@ -12,7 +12,6 @@ struct WebView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> SynthPartyWebViewController {
         let viewController = SynthPartyWebViewController()
         viewController.delegate = context.coordinator
-        
         context.coordinator.bind(viewModel: viewModel, viewController: viewController)
         
         return viewController
@@ -21,6 +20,7 @@ struct WebView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: SynthPartyWebViewController, context: Context) {
     }
 }
+
 
 extension WebView {
     
@@ -40,8 +40,8 @@ extension WebView {
             Task {
                 for await input in inputChannel {
                     switch input {
-                    case .load(url: let url):
-                        viewController.load(url: url)
+                    case .load:
+                        viewController.load(url: viewModel.url ?? URL(string: "https://synth.party/cc/")!)
                     case .goBack:
                         viewController.goBack()
                     case .goForward:
@@ -56,8 +56,7 @@ extension WebView {
             
             self.eventChannel = viewModel.eventChannel
         }
-        
-        
+ 
         nonisolated func synthPartyWebViewController(_ viewController: SynthPartyWebViewController, didDownloadFileAt url: URL) {
             Task { @MainActor in
                 let vc = UIDocumentPickerViewController(forExporting: [url])
