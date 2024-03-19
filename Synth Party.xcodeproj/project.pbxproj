@@ -57,6 +57,7 @@
 		F005EBA02BA8C724006EE333 /* WebMIDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebMIDI.swift; sourceTree = "<group>"; };
 		F005EBA22BA8C724006EE333 /* MIDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDI.swift; sourceTree = "<group>"; };
 		F036D4972BA8CAD4002801A5 /* inject.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = inject.js; sourceTree = "<group>"; };
+		F0748ABA2BA9A7A700B7F8A5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				F005EBA22BA8C724006EE333 /* MIDI.swift */,
+				F0748ABA2BA9A7A700B7F8A5 /* PrivacyInfo.xcprivacy */,
 				F005EB9E2BA8C724006EE333 /* MIDIClient.swift */,
 				F005EB9F2BA8C724006EE333 /* MIDIPort.swift */,
 				F036D4972BA8CAD4002801A5 /* inject.js */,
