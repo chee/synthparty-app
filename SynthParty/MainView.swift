@@ -6,17 +6,6 @@ struct MainView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                TextField("url", text: Binding(
-                        get: { model.webViewModel.url?.absoluteString ?? "" },
-                        set: { model.webViewModel.url = URL(string: $0) }
-                    ))
-                    .keyboardType(.URL)
-                    .textInputAutocapitalization(.never)
-                    .onSubmit {
-                        model.load()
-                    }
-                    .submitLabel(.go)
-                Spacer()
                 Button(action: {
                     model.goBack()
                 }) {
@@ -40,7 +29,17 @@ struct MainView: View {
                         .foregroundStyle(.blue)
                         .labelStyle(.iconOnly)
                 }
-              
+                Spacer()
+                TextField("url", text: Binding(
+                        get: { model.webViewModel.url?.absoluteString ?? "" },
+                        set: { model.webViewModel.url = URL(string: $0) }
+                    ))
+                    .keyboardType(.URL)
+                    .textInputAutocapitalization(.never)
+                    .onSubmit {
+                        model.load()
+                    }
+                    .submitLabel(.go)
             }.padding(10)
             .cornerRadius(30)
 
