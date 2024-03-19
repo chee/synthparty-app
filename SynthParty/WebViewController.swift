@@ -26,11 +26,10 @@ public class WebViewController: UIViewController {
         configuration.dataDetectorTypes = []
         configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
         configuration.preferences.isElementFullscreenEnabled = true
-        configuration.defaultWebpagePreferences.preferredContentMode = .mobile
         self.webView = WKWebView(frame: .zero, configuration: configuration)
         webView.isInspectable = true
-        
         super.init(nibName: nil, bundle: nil)
+ 
     }
     
     public init(webView: WKWebView) {

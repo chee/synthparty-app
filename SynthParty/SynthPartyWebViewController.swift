@@ -8,8 +8,6 @@ public class SynthPartyWebViewController: WebViewController {
     
     private let webMidi = WebMIDI()
     
-    private var cancellables: Set<AnyCancellable> = []
-    
     private var sizeConstraints: [NSLayoutConstraint] = []
     
     public override init() {
@@ -36,17 +34,10 @@ public class SynthPartyWebViewController: WebViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
         webView.navigationDelegate = self
-        
-        webView.scrollView.contentInsetAdjustmentBehavior = .never
+        webView.scrollView.contentInsetAdjustmentBehavior = .automatic
     }
     
-    public override func viewWillLayoutSubviews() {
-        let multiplier = max(1.0, 1092.0 / view.bounds.width)
-        updateSizeConstraints(multiplier: multiplier)
-        webView.transform = CGAffineTransform(scaleX: 1.0 / multiplier, y: 1.0 / multiplier)
-    }
     
     private func updateSizeConstraints(multiplier: CGFloat) {
         NSLayoutConstraint.deactivate(sizeConstraints)
@@ -58,8 +49,6 @@ public class SynthPartyWebViewController: WebViewController {
     }
 }
 
-extension SynthPartyWebViewController: WKNavigationDelegate {
-}
+extension SynthPartyWebViewController: WKNavigationDelegate {}
 
-public protocol SynthPartyWebViewControllerDelegate: AnyObject {
-}
+public protocol SynthPartyWebViewControllerDelegate: AnyObject {}
